@@ -85,8 +85,30 @@ select {
 }
 
 .site-frame {
+  display: flex;
+  flex-direction: column;
   width: min(1440px, 100%);
   margin: 0 auto;
+}
+
+.hero-stage {
+  order: 1;
+}
+
+.showcase-strip {
+  order: 2;
+}
+
+.index-section {
+  order: 3;
+}
+
+.message-section {
+  order: 4;
+}
+
+.article-section {
+  order: 5;
 }
 
 .hero-stage {
@@ -533,7 +555,7 @@ select {
   gap: 8px;
 }
 
-.message-section {
+.article-section {
   margin-bottom: 170px;
 }
 
