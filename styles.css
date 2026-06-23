@@ -556,6 +556,7 @@ select {
 }
 
 .message-section {
+  border-top: 1px solid var(--line);
   margin-top: clamp(28px, 5vw, 64px);
   margin-bottom: 170px;
 }
