@@ -104,11 +104,11 @@ select {
 }
 
 .message-section {
-  order: 4;
+  order: 5;
 }
 
 .article-section {
-  order: 5;
+  order: 4;
 }
 
 .hero-stage {
@@ -555,7 +555,7 @@ select {
   gap: 8px;
 }
 
-.article-section {
+.message-section {
   margin-bottom: 170px;
 }
 
