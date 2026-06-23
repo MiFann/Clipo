@@ -556,7 +556,17 @@ select {
 }
 
 .message-section {
+  margin-top: clamp(28px, 5vw, 64px);
   margin-bottom: 170px;
+}
+
+.message-section .section-heading {
+  border-bottom: 0;
+  padding-bottom: clamp(10px, 2vw, 18px);
+}
+
+.message-section .interaction-layout {
+  padding-top: 0;
 }
 
 .article-empty,
