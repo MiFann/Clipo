@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Q Blog Admin</title>
+    <link rel="stylesheet" href="/admin/admin.css" />
+    <script src="/admin/admin.js" defer></script>
+  </head>
+  <body>
+    <main class="admin-shell">
+      <section class="admin-panel" id="login-panel">
+        <p class="eyebrow">Admin</p>
+        <h1>Q Blog</h1>
+        <form id="login-form" class="stack">
+          <label>
+            <span>账号</span>
+            <input name="username" autocomplete="username" required />
+          </label>
+          <label>
+            <span>密码</span>
+            <input name="password" type="password" autocomplete="current-password" required />
+          </label>
+          <button type="submit">登录</button>
+          <p id="login-message" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="workspace is-hidden" id="workspace">
+        <header class="workspace-header">
+          <div>
+            <p class="eyebrow">Workspace</p>
+            <h1>内容管理</h1>
+          </div>
+          <button id="logout-button" type="button">退出</button>
+        </header>
+
+        <nav class="tabs" aria-label="后台功能">
+          <button class="tab is-active" type="button" data-view="posts">文章</button>
+          <button class="tab" type="button" data-view="comments">评论</button>
+          <button class="tab" type="button" data-view="messages">留言</button>
+          <button class="tab" type="button" data-view="stats">统计</button>
+        </nav>
+
+        <section id="view-posts" class="view">
+          <form id="post-form" class="editor-grid">
+            <input type="hidden" name="id" />
+            <label>
+              <span>标题</span>
+              <input name="title" required />
+            </label>
+            <label>
+              <span>Slug</span>
+              <input name="slug" required />
+            </label>
+            <label>
+              <span>分类</span>
+              <select name="category">
+                <option value="notes">Notes</option>
+                <option value="tech">Tech</option>
+                <option value="works">Works</option>
+              </select>
+            </label>
+            <label>
+              <span>状态</span>
+              <select name="status">
+                <option value="draft">草稿</option>
+                <option value="published">发布</option>
+              </select>
+            </label>
+            <label class="wide">
+              <span>摘要</span>
+              <textarea name="excerpt" rows="2"></textarea>
+            </label>
+            <label class="wide">
+              <span>正文</span>
+              <textarea name="body" rows="8" required></textarea>
+            </label>
+            <div class="actions wide">
+              <button type="submit">保存文章</button>
+              <button id="reset-post-form" type="button">清空</button>
+            </div>
+          </form>
+          <div id="posts-list" class="admin-list"></div>
+        </section>
+
+        <section id="view-comments" class="view is-hidden">
+          <div id="comments-list" class="admin-list"></div>
+        </section>
+
+        <section id="view-messages" class="view is-hidden">
+          <div id="messages-list" class="admin-list"></div>
+        </section>
+
+        <section id="view-stats" class="view is-hidden">
+          <div id="stats-list" class="stats-grid"></div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

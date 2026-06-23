@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Q Personal Blog</title>
+    <meta
+      name="description"
+      content="一个包含随笔、技术、作品与音乐播放器的极简个人博客。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="blog-engine.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="返回首页">Q</a>
+      <nav class="nav-links">
+        <a href="#index">Index</a>
+        <a href="#notes" data-nav-category="notes">Notes</a>
+        <a href="#tech" data-nav-category="tech">Tech</a>
+        <a href="#works" data-nav-category="works">Works</a>
+        <a href="#music">Music</a>
+      </nav>
+    </header>
+
+    <main id="top" class="site-frame">
+      <section class="hero-stage" aria-labelledby="hero-title">
+        <div class="hero-card">
+          <div class="q-pattern" aria-hidden="true">
+            <div class="pattern-row">
+              <span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span>
+            </div>
+            <div class="pattern-row">
+              <span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span>
+            </div>
+            <div class="pattern-row">
+              <span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span>
+            </div>
+            <div class="pattern-row">
+              <span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span>
+            </div>
+            <div class="pattern-row">
+              <span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span>
+            </div>
+          </div>
+          <div class="hero-copy">
+            <p class="eyebrow">Personal Blog</p>
+            <h1 id="hero-title">I‘M Qqqq</h1>
+            <p class="hero-subtitle">Notes / Tech / Works</p>
+          </div>
+          <div class="alt-hero-layer" aria-hidden="true">
+            <div class="q-pattern inverted">
+              <div class="pattern-row">
+                <span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span>
+              </div>
+              <div class="pattern-row">
+                <span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span>
+              </div>
+              <div class="pattern-row">
+                <span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span><span>Q</span>
+              </div>
+            </div>
+            <h2>I‘M Qqqq</h2>
+          </div>
+          <a class="about-cue" href="#index">About Me</a>
+        </div>
+      </section>
+
+      <section class="showcase-strip" aria-label="博客栏目">
+        <a href="#notes" data-nav-category="notes">
+          <span>Notes</span>
+          <strong>个人随笔</strong>
+        </a>
+        <a href="#tech" data-nav-category="tech">
+          <span>Tech</span>
+          <strong>工程记录</strong>
+        </a>
+        <a href="#works" data-nav-category="works">
+          <span>Works</span>
+          <strong>作品归档</strong>
+        </a>
+      </section>
+
+      <section id="index" class="index-section panel-section" aria-labelledby="index-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Index</p>
+            <h2 id="index-title">Blog</h2>
+          </div>
+          <p>技术、随笔和作品先按同一套索引收束，阅读时再进入文章详情。</p>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="文章分类">
+          <button class="filter-button is-active" type="button" data-category="all">All</button>
+          <button class="filter-button" type="button" data-category="notes">Notes</button>
+          <button class="filter-button" type="button" data-category="tech">Tech</button>
+          <button class="filter-button" type="button" data-category="works">Works</button>
+        </div>
+
+        <form id="search-form" class="search-band" role="search">
+          <label for="search-input">Search</label>
+          <input id="search-input" type="search" placeholder="搜索文章" />
+          <button type="submit">Search</button>
+        </form>
+
+        <ol id="post-list" class="post-list" aria-live="polite"></ol>
+
+        <div class="pagination" aria-label="文章分页">
+          <button id="prev-page" class="page-action" type="button">Prev</button>
+          <div id="page-numbers" class="page-numbers"></div>
+          <button id="next-page" class="page-action" type="button">Next</button>
+        </div>
+      </section>
+
+      <section id="article" class="article-section panel-section" aria-live="polite" aria-labelledby="article-title">
+        <div id="article-empty" class="article-empty">
+          <p class="eyebrow">Article</p>
+          <h2 id="article-title">选择一篇文章</h2>
+          <p>点击上方索引里的标题，文章会在这里展开，并同步更新地址栏。</p>
+        </div>
+      </section>
+      <section id="messages" class="message-section panel-section" aria-labelledby="messages-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Messages</p>
+            <h2 id="messages-title">留言</h2>
+          </div>
+          <p>匿名留言会先进入后台审核，通过后在这里显示。</p>
+        </div>
+        <div class="interaction-layout">
+          <div id="messages-list" class="public-list" aria-live="polite"></div>
+          <form id="message-form" class="inline-form">
+            <input name="nickname" placeholder="昵称" required maxlength="40" />
+            <textarea name="content" placeholder="写一条留言" required maxlength="1000"></textarea>
+            <button type="submit">提交留言</button>
+            <p id="message-status" class="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <aside id="music" class="player" aria-label="音乐播放器">
+      <div class="player-meta">
+        <p class="player-kicker">Music</p>
+        <h2 id="track-title">Placeholder 01</h2>
+        <p id="track-artist">Q Blog</p>
+      </div>
+
+      <div class="player-controls">
+        <button id="previous-track" type="button" aria-label="上一首">Prev</button>
+        <button id="toggle-play" class="play-button" type="button" aria-label="播放或暂停">Play</button>
+        <button id="next-track" type="button" aria-label="下一首">Next</button>
+      </div>
+
+      <label class="range-label" for="track-progress">
+        <span id="current-time">0:00</span>
+        <input id="track-progress" type="range" min="0" max="100" value="0" />
+        <span id="duration">3:06</span>
+      </label>
+
+      <label class="volume-label" for="volume-control">
+        <span>Vol</span>
+        <input id="volume-control" type="range" min="0" max="100" value="72" />
+      </label>
+    </aside>
+  </body>
+</html>

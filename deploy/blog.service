@@ -1,0 +1,15 @@
+[Unit]
+Description=Q Blog FastAPI Service
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/blog
+Environment="BLOG_DB_PATH=/var/www/blog/backend/data/blog.db"
+ExecStart=/var/www/blog/.venv/bin/python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
